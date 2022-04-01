@@ -1,19 +1,13 @@
-import { Route, Routes } from 'react-router-dom'
-
-import HomePage from './routes/home-page'
-import Expenses from './routes/expenses'
-import Invoices from './routes/invoices'
-
+import { Link, Routes, Outlet } from 'react-router-dom'
 import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="expenses" element={<Expenses />} />
-        <Route path="invoices" element={<Invoices />} />
-      </Routes>
+      <h2>React Router v6</h2>
+      <Link to="/invoices">Invoices</Link> |{' '}
+      <Link to="/expenses">Expenses</Link>
+      <Outlet />
     </div>
   )
 }

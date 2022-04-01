@@ -1,10 +1,19 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import { getInvoices } from '../data'
 
-const Invoices = () => {
+function Invoices() {
+  let invoices = getInvoices()
+  // console.log(invoices)
   return (
     <>
-      <h2>React Router V6</h2>
       <h3>Invoices</h3>
+      {invoices.map((invoice) => (
+        <Link to={`/invoices/${invoice.number}`} key={invoice.number}>
+          {invoice.name}|{' '}
+        </Link>
+      ))}
+      <Outlet />
     </>
   )
 }
